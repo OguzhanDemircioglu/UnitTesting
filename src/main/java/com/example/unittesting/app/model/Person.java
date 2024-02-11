@@ -2,21 +2,22 @@ package com.example.unittesting.app.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.web.WebProperties;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@RequiredArgsConstructor
-@Table(schema = "crm",name = "kisi")
-public class Kisi {
+@NoArgsConstructor
+@Table(name = "person")
+public class Person {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "name")
-    String name;
+    private String name;
 
-    @Column(name = "surname")
-    String surname;
+    @Column(name = "soyisim")
+    private String surname;
 }

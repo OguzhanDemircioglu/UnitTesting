@@ -8,8 +8,10 @@ import java.util.List;
 @Entity
 @Table(name = "kisi")
 @Data
-@RequiredArgsConstructor
 @EqualsAndHashCode(of = {"id"})
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class Kisi {
 
@@ -26,5 +28,5 @@ public class Kisi {
 
     @OneToMany
     @JoinColumn(name = "kisi_adres_id")
-    private List<Adres> adresleri;
+    private List<Adres> adresler;
 }

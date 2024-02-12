@@ -23,7 +23,7 @@ public class KisiSrvImpl implements KisiService {
 
     @Override
     public KisiDto save(KisiDto kisiDto) {
-        Assert.notNull(kisiDto.getAdi(), "Adi alani zorunludur!");
+        Assert.notNull(kisiDto.getAdi(), "Adi alani zorunludur!");//IllegalArgumentException almak içindir
 
         Kisi kisi = new Kisi();
         kisi.setAdi(kisiDto.getAdi());
@@ -55,8 +55,8 @@ public class KisiSrvImpl implements KisiService {
             kisiDto.setAdi(it.getAdi());
             kisiDto.setSoyadi(it.getSoyadi());
             kisiDto.setAdresler(
-                    it.getAdresleri() != null ?
-                            it.getAdresleri().stream().map(Adres::getAdres).collect(Collectors.toList())
+                    it.getAdresler() != null ?
+                            it.getAdresler().stream().map(Adres::getAdres).collect(Collectors.toList())
                             : null);
             kisiDtos.add(kisiDto);
         });

@@ -12,6 +12,7 @@ import org.springframework.util.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,6 +24,9 @@ public class KisiSrvImpl implements KisiService {
 
     @Override
     public KisiDto save(KisiDto kisiDto) {
+        if (Objects.isNull(kisiDto.getAdi())) {
+            throw new IllegalArgumentException("işlem geçersiz");
+        }
         Assert.notNull(kisiDto.getAdi(), "Adi alani zorunludur!");//IllegalArgumentException almak içindir
 
         Kisi kisi = new Kisi();

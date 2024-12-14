@@ -1,12 +1,13 @@
 package com.example.unittesting.app.service.srvImpl;
 
 import com.example.unittesting.app.repository.CalculatorRepository;
+import com.example.unittesting.app.service.CalculatorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CalculatorSrvImpl{
+public class CalculatorSrvImpl implements CalculatorService {
     private final CalculatorRepository repository;
 
     public int add(int a, int b) {

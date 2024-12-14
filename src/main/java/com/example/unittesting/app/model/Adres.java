@@ -18,7 +18,7 @@ public class Adres implements Serializable {
     @GeneratedValue(generator = "seq_kisi_adres", strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Column(length = 500, name = "adres")
+    @Column(length = 30, name = "adres")
     private String adres;
 
     @Enumerated

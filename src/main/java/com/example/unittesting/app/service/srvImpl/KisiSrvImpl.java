@@ -27,7 +27,6 @@ public class KisiSrvImpl implements KisiService {
         if (Objects.isNull(kisiDto.getAdi())) {
             throw new IllegalArgumentException("işlem geçersiz");
         }
-        Assert.notNull(kisiDto.getAdi(), "Adi alani zorunludur!");//IllegalArgumentException almak içindir
 
         Kisi kisi = new Kisi();
         kisi.setAdi(kisiDto.getAdi());
@@ -37,14 +36,13 @@ public class KisiSrvImpl implements KisiService {
         List<Adres> liste = new ArrayList<>();
         kisiDto.getAdresler().forEach(item -> {
             Adres adres = new Adres();
-            adres.setAdres(item);
             adres.setAdresTip(Adres.AdresTip.DIGER);
             adres.setAktif(true);
             adres.setKisi(kisiDb);
             liste.add(adres);
         });
         adresRepository.saveAll(liste);
-        kisiDto.setId(kisiDb.getId());
+        kisiDto.setId(kisiDb.getId());  //NullPointer Alması için
         return kisiDto;
     }
 

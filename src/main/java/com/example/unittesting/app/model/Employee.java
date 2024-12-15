@@ -1,5 +1,6 @@
 package com.example.unittesting.app.model;
 
+import com.example.unittesting.app.helper.GenericBuilder;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,6 +23,10 @@ public class Employee {
     @Column(length = 20, name = "lastName")
     private String lastName;
 
-    @Column(length = 30, name = "email", unique = true)
+    @Column(length = 30, name = "email", unique = true, nullable = false)
     private String email;
+
+    public static GenericBuilder<Employee> builder2() {
+        return GenericBuilder.of(Employee.class);
+    }
 }

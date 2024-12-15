@@ -6,16 +6,15 @@ import lombok.*;
 @Entity
 @Table(name = "employees")
 @Data
-@EqualsAndHashCode(of = {"id"})
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 public class Employee {
+
     @Id
-    @SequenceGenerator(name = "seq_kisi", allocationSize = 1)
-    @GeneratedValue(generator = "seq_kisi", strategy = GenerationType.SEQUENCE)
-    private Long id;
+    @SequenceGenerator(name = "seq_employees", allocationSize = 1)
+    @GeneratedValue(generator = "seq_employees", strategy = GenerationType.AUTO)
+    private long id;
 
     @Column(length = 20, name = "firstName")
     private String firstName;
@@ -23,6 +22,6 @@ public class Employee {
     @Column(length = 20, name = "lastName")
     private String lastName;
 
-    @Column(length = 30, name = "email")
+    @Column(length = 30, name = "email", unique = true)
     private String email;
 }

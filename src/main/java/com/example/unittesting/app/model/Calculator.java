@@ -13,6 +13,7 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"id"})
 @ToString
 public class Calculator {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")

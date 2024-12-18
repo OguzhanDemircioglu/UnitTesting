@@ -56,7 +56,6 @@ class KisiSrvImplTest {
         KisiDto kisiDto = KisiDto.builder().adi("oguz").soyadi("dddd").adresler(List.of("girsun", "bursa")).build();
 
         assertThrows(NullPointerException.class, () -> kisiSrv.save(kisiDto));
-        // Önce Adresler insert edilmeli ManyToOne
     }
 
     @Test

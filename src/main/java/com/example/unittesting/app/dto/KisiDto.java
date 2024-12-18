@@ -1,12 +1,9 @@
 package com.example.unittesting.app.dto;
 
-import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor

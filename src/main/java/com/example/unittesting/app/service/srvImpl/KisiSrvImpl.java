@@ -8,7 +8,6 @@ import com.example.unittesting.app.repository.KisiRepository;
 import com.example.unittesting.app.service.KisiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +51,7 @@ public class KisiSrvImpl implements KisiService {
         List<KisiDto> kisiDtos = new ArrayList<>();
 
         kisiler.forEach(it -> {
-            KisiDto kisiDto =new KisiDto();
+            KisiDto kisiDto = new KisiDto();
             kisiDto.setId(it.getId());
             kisiDto.setAdi(it.getAdi());
             kisiDto.setSoyadi(it.getSoyadi());

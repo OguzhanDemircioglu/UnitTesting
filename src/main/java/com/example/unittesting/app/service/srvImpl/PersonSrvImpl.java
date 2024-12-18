@@ -14,7 +14,7 @@ public class PersonSrvImpl implements PersonService {
         this.repository = repository;
     }
 
-    public Person savePerson(Person person){
+    public Person savePerson(Person person) {
         return this.repository.save(person);
     }
 }

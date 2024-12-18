@@ -2,7 +2,10 @@ package com.example.unittesting.app.model;
 
 import com.example.unittesting.app.helper.GenericBuilder;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "employees")

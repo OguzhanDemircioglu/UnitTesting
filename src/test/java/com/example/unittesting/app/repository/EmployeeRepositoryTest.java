@@ -49,7 +49,7 @@ class EmployeeRepositoryTest {
     }
 
     @Test
-    void saveEmployee(){
+    void saveEmployee() {
         Employee savedEmployee = employeeRepository.save(employee);
         assertThat(savedEmployee).isNotNull();
         assertThat(savedEmployee.getId()).isGreaterThan(0);
@@ -57,7 +57,7 @@ class EmployeeRepositoryTest {
 
     @DisplayName("Employees operation")
     @Test
-    void findAllEmployeesList(){
+    void findAllEmployeesList() {
         Employee employee1 = Employee.builder()
                 .firstName("John")
                 .lastName("Cena")
@@ -74,14 +74,14 @@ class EmployeeRepositoryTest {
     }
 
     @Test
-    void findById(){
+    void findById() {
         employeeRepository.save(employee);
         Employee employeeDB = employeeRepository.findById(employee.getId()).get();
         assertThat(employeeDB).isNotNull();
     }
 
     @Test
-    void findByEmail(){
+    void findByEmail() {
         employeeRepository.save(employee);
         Optional<Employee> employeeDB = employeeRepository.findByEmail(employee.getEmail());
         assertThat(employeeDB).isNotNull();
@@ -89,13 +89,13 @@ class EmployeeRepositoryTest {
 
     @DisplayName("update employee operation")
     @Test
-    void findById2(){
+    void findById2() {
         employeeRepository.save(employee);
 
         Employee savedEmployee = employeeRepository.findById(employee.getId()).get();
         savedEmployee.setEmail("qwe@gmail.com");
         savedEmployee.setFirstName("qweeeee");
-        Employee updatedEmployee =  employeeRepository.save(savedEmployee);
+        Employee updatedEmployee = employeeRepository.save(savedEmployee);
 
         assertThat(updatedEmployee.getEmail()).isEqualTo("qwe@gmail.com");
         assertThat(updatedEmployee.getFirstName()).isEqualTo("qweeeee");
@@ -103,7 +103,7 @@ class EmployeeRepositoryTest {
 
     @DisplayName("deleteById employee operation")
     @Test
-    void deleteById(){
+    void deleteById() {
         employeeRepository.save(employee);
         employeeRepository.deleteById(employee.getId());
         Optional<Employee> employeeOptional = employeeRepository.findById(employee.getId());
@@ -112,7 +112,7 @@ class EmployeeRepositoryTest {
 
     @DisplayName("findByJPQL using JPQL with index")
     @Test
-    void findByJPQL(){
+    void findByJPQL() {
         employeeRepository.save(employee);
         String firstName = "qwe";
         String lastName = "qwe";
@@ -121,7 +121,7 @@ class EmployeeRepositoryTest {
     }
 
     @Test
-    void findByJPQLNamedParams(){
+    void findByJPQLNamedParams() {
         employeeRepository.save(employee);
         String firstName = "qwe";
         String lastName = "qwe";
@@ -130,14 +130,14 @@ class EmployeeRepositoryTest {
     }
 
     @Test
-    void findByNativeSQL(){
+    void findByNativeSQL() {
         employeeRepository.save(employee);
         Employee savedEmployee = employeeRepository.findByNativeSQL(employee.getFirstName(), employee.getLastName());
         assertThat(savedEmployee).isNotNull();
     }
 
     @Test
-    void findByNativeSQLNamed(){
+    void findByNativeSQLNamed() {
         employeeRepository.save(employee);
         Employee savedEmployee = employeeRepository.findByNativeSQLNamed(employee.getFirstName(), employee.getLastName());
         assertThat(savedEmployee).isNotNull();

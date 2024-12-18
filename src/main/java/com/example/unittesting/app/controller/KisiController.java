@@ -20,9 +20,9 @@ public class KisiController {
     public ResponseEntity<KisiDto> kaydet(@Validated @RequestBody KisiDto kisiDto) throws Exception {
         try {
             return ResponseEntity.ok(kisiService.save(kisiDto));
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage());
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("işlem geçersiz");
         }
     }

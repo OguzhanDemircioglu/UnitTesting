@@ -3,7 +3,6 @@ package com.example.unittesting.app.controller;
 import com.example.unittesting.app.exception.ResourceNotFoundException;
 import com.example.unittesting.app.model.Employee;
 import com.example.unittesting.app.service.EmployeeService;
-import jdk.jshell.Snippet;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -19,7 +18,7 @@ public class EmployeeController {
     private final EmployeeService service;
 
     @PostMapping(value = "/saveEmployee")
-    public ResponseEntity<?> saveEmployee(@Validated @RequestBody Employee employee){
+    public ResponseEntity<?> saveEmployee(@Validated @RequestBody Employee employee) {
         try {
             return ResponseEntity.ok(service.saveEmployee(employee));
         } catch (ResourceNotFoundException e) {
@@ -30,7 +29,7 @@ public class EmployeeController {
     }
 
     @PostMapping(value = "/updateEmployee")
-    public ResponseEntity<?> updateEmployee(@Validated @RequestBody Employee employee){
+    public ResponseEntity<?> updateEmployee(@Validated @RequestBody Employee employee) {
         try {
             return ResponseEntity.ok(service.updateEmployee(employee));
         } catch (RuntimeException e) {

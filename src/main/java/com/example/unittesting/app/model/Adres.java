@@ -1,9 +1,12 @@
 package com.example.unittesting.app.model;
 
-import java.io.Serializable;
-
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+
+import java.io.Serializable;
 
 @Entity
 @Table(name = "kisi_adres")

@@ -61,12 +61,7 @@ public class EmployeeSrvImpl implements EmployeeService {
 
     @Override
     public void deleteEmployeeById(long id) {
-        Optional<Employee> employee = repository.findById(id);
-
-        if (employee.isEmpty()) {
-            throw new ResourceNotFoundException("Employee not found");
-        }
-
-        repository.deleteById(id);
+        repository.delete(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee not found")));
     }
 }

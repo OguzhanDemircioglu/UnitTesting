@@ -1,8 +1,6 @@
 package com.example.unittesting.app.controller;
 
 import com.example.unittesting.app.dto.KisiDto;
-import com.example.unittesting.app.model.Calculator;
-import com.example.unittesting.app.model.Student;
 import com.example.unittesting.app.service.KisiService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -20,9 +18,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
